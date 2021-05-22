@@ -1,3 +1,4 @@
+/*
 package com.example.newsapp;
 
 
@@ -43,7 +44,7 @@ public final class Mysingleton {
         return single_instance;
     }
 
-    public void addToRequestQueue(JsonObjectRequest jsonObjectRequest){
+    public void addToRequestQueue(JsonObjectRequest jsonObjectRequest) {
        // RequestQueue queue = Volley.newRequestQueue(context.getApplicationContext());
 
         RequestQueue queue = Volley.newRequestQueue(context.getApplicationContext());
@@ -69,3 +70,4 @@ public final class Mysingleton {
 
 }
 
+*/

@@ -3,6 +3,7 @@ package com.example.newsapp;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
@@ -12,8 +13,8 @@ import java.util.ArrayList;
 public class NewsListAdapter extends RecyclerView.Adapter<NewsViewHolder>  {
      ArrayList<News> item = new ArrayList<News>();
     NewsItemClick listner;
-    public NewsListAdapter( NewsItemClick listner) {
-
+    public NewsListAdapter(NewsItemClick listner) {//NewsItemClick listner
+       // this.item = item;
         this.listner = listner;
     }
 
@@ -26,7 +27,7 @@ public class NewsListAdapter extends RecyclerView.Adapter<NewsViewHolder>  {
         view.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                listner.onItemClick(item, viewHolder.getAdapterPosition(),v);
+                listner.onItemClick(item.get(viewHolder.getAdapterPosition()));
             }
         });
         return viewHolder;
@@ -54,5 +55,19 @@ public class NewsListAdapter extends RecyclerView.Adapter<NewsViewHolder>  {
     }
 }
 interface NewsItemClick{
-      void onItemClick(ArrayList<News> item, int possition, View view);
+      void onItemClick(News item);
     }
+
+       class NewsViewHolder extends RecyclerView.ViewHolder {
+
+
+        TextView txtView = (TextView) itemView.findViewById(R.id.title);
+        public NewsViewHolder(@NonNull View item) {
+            super(item);
+        }
+
+         public NewsViewHolder(@NonNull View itemView, TextView txtView) {
+             super(itemView);
+             this.txtView = txtView;
+         }
+     }
